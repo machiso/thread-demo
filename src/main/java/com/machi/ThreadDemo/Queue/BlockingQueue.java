@@ -1,10 +1,10 @@
-package com.machi.ThreadDemo;
+package com.machi.ThreadDemo.Queue;
 
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by dell on 2018/2/1.
+ * 实现阻塞队列
  */
 public class BlockingQueue {
 
@@ -20,7 +20,7 @@ public class BlockingQueue {
      * put操作
      * 当队列长度最大时，等待，对列长度为空时，唤醒
      */
-    public synchronized void put(Object item) throws InterruptedException {
+    public synchronized void enqueue(Object item) throws InterruptedException {
         while (this.queue.size() == this.limit)
             wait();
         if (this.queue.size() == 0)
@@ -31,7 +31,7 @@ public class BlockingQueue {
     /**
      * take操作
      */
-    public synchronized Object take() throws InterruptedException {
+    public synchronized Object dequeue() throws InterruptedException {
         while (this.queue.size() == 0)
             wait();
         if (this.queue.size() == this.limit)

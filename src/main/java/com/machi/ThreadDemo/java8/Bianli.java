@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by dell on 2018/1/31.
+ * 字符串去重
  */
 public class Bianli {
     public static void main(String[] args) {
@@ -20,10 +20,11 @@ public class Bianli {
 
         List<String> strings = list.stream().distinct().collect(Collectors.toList());
 
-        for (String s : strings)
-            System.out.println(s);
+//        for (String s : strings)
+//            System.out.println(s);
 
-
+        //java8遍历字符串数组
+        strings.forEach(x-> System.out.println(x));
 
 
     }
